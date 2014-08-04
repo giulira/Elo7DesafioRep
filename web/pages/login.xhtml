@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+   
+    <h:head/>    
+    <h:body>        
+        <f:view>
+            <h1>Desafio Elo7</h1> 
+            <h:messages style="color: red;display: block"/> 
+            <h:form>               
+                <p:panel style="width: 30%">
+                    <p>
+                        <h:outputText value="Login: "/>
+                        <h:inputText id="login" value="#{pessoaMB.login}"/>
+                    </p>
+                    <p>
+                        <h:outputText value="Senha: "/>
+                        <h:inputSecret id="senha" value="#{pessoaMB.senha}"/>
+                        <h:commandButton action="#{pessoaMB.loginUser}" type="submit" value="Acessar"/>
+                    </p>
+                    <br/>
+                    <p><h:commandLink action="#{pessoaMB.irCadastro}" value="Cadastro de contas"/></p>
+                </p:panel>    
+            </h:form>
+                
+            
+        </f:view>
+    </h:body>
+</html>    

@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+   
+    <h:head/>    
+    <h:body>        
+        <f:view>
+            <H1>Cadastro de Contas</H1>
+            
+            <h:messages style="color: red;display: block"/> 
+            
+            <h:form>
+                <p:panel style="width: 40%">
+                <p>
+                    <h:outputText value="Nome: "/>
+                    <h:inputText id="nome" value="#{pessoaMB.nome}" />
+                </p>
+                
+                <p>
+                    <h:outputText value="Endereço: " escape="false"/>
+                    <h:inputText id="endereco" value="#{pessoaMB.endereco}" />
+                </p>
+                
+                <p>
+                    <h:outputText value="Tipo Documento: "/>
+                    <h:selectOneMenu value="#{pessoaMB.tipoDoc}"> 
+                        <f:selectItem itemValue="CPF" itemLabel="CPF" />
+                        <f:selectItem itemValue="RG" itemLabel="RG" />
+                    </h:selectOneMenu>
+                </p>
+                
+                <p>
+                    <h:outputText value="Documento: "/>
+                    <h:inputText id="documento" value="#{pessoaMB.documento}" />
+                </p>
+                
+                <p>
+                    <h:outputText value="Agência: "  escape="false"/>
+                    <h:inputText id="agencia" value="#{pessoaMB.agencia}" />
+                </p>
+                
+                <p>
+                    <h:outputText value="Conta: "/>
+                    <h:inputText id="conta" value="#{pessoaMB.conta}" />
+                </p>
+                
+                <p>
+                    <h:outputText value="login"/>
+                    <h:inputText id="login" value="#{pessoaMB.login}" />
+                </p>
+                
+                <p>
+                    <h:outputText value="Senha: "/>
+                    <h:inputSecret id="senha" value="#{pessoaMB.senha}" />
+                </p>
+                
+                <p>
+                  <h:commandButton action="#{pessoaMB.cadastrarPessoa}" type="submit" value="Cadastrar"/>
+                </p>
+                </p:panel>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>    
