@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class AplicaTaxaTipoA {
     
      public BigDecimal aplicarTaxa(BigDecimal valor){
-      BigDecimal result = new BigDecimal("0");
+      BigDecimal result = BigDecimal.ZERO;
       try{
         result = valor.multiply(new BigDecimal(3)).divide(new BigDecimal(100));
         result = valor.add(new BigDecimal(2)).add(result);

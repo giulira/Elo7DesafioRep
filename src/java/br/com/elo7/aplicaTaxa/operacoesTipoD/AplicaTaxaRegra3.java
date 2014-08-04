@@ -28,7 +28,7 @@ public class AplicaTaxaRegra3 implements AplicaTaxaTipoD{
 
     @Override
     public BigDecimal aplicarTaxa(Transferencia transferencia) {
-        BigDecimal taxa = new BigDecimal("0");
+        BigDecimal taxa = BigDecimal.ZERO;
         Date dt = transferencia.getDataTransferencia();      
         int dias = calculaPrazo(dt);
         
@@ -80,10 +80,7 @@ public class AplicaTaxaRegra3 implements AplicaTaxaTipoD{
     }
     
      public int calculaPrazo(Date dataTrasferencia){  
-        /*Não esquescer que para calcular o mes de um Date mes - 1.
-        Limitar mes seguinte no calendario.
-        */
-        
+           
        int qtdeDias = 0;  
        GregorianCalendar dtAtual = new GregorianCalendar();
        int diaAtual = dtAtual.get(Calendar.DAY_OF_MONTH);

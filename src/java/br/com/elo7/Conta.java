@@ -9,30 +9,28 @@ package br.com.elo7;
 import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 /**
  *
  * @author Giu
  */
 @Entity
 public class Conta {
-    
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)  
+    @GeneratedValue
+    private long id;
     private long numeroConta;
     private long agencia;
-    private BigDecimal valorConta;
+    private BigDecimal saldo;
 
-    public BigDecimal getValorConta() {
-        return valorConta;
+    public long getId() {
+        return id;
     }
 
-    public void setValorConta(BigDecimal valorConta) {
-        this.valorConta = valorConta;
+    public void setId(long id) {
+        this.id = id;
     }
-    
+     
     public long getNumeroConta() {
         return numeroConta;
     }
@@ -48,5 +46,15 @@ public class Conta {
     public void setAgencia(long agencia) {
         this.agencia = agencia;
     }   
+
+    public BigDecimal getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(BigDecimal saldo) {
+        this.saldo = saldo;
+    }
+    
+    
     
 }

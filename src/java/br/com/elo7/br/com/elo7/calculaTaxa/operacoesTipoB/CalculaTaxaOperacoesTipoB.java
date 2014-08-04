@@ -21,8 +21,8 @@ import java.util.GregorianCalendar;
  */
 public class CalculaTaxaOperacoesTipoB {
     
-    public Transferencia calculaTaxa(Transferencia transferencia){
-        BigDecimal taxa = new BigDecimal("0");
+    public BigDecimal calculaTaxa(Transferencia transferencia){
+        BigDecimal taxa = BigDecimal.ZERO;
         Date dt = transferencia.getDataTransferencia();      
         int dias = calculaPrazo(dt);
         
@@ -30,10 +30,7 @@ public class CalculaTaxaOperacoesTipoB {
             AplicaTaxaTipoB tipoB = new AplicaTaxaAteTrintaDias();
             try{
                 taxa = tipoB.aplicarTaxa(transferencia.getValorTransferencia());            
-                if(taxa.doubleValue() > transferencia.getContaOrigem().getValorConta().doubleValue()){
-                    throw new ArithmeticException("Não há saldo o sufiente na conta para a realização da transferência.");
-                }
-                transferencia.setValorTransferencia(taxa);
+             
             }catch(ArithmeticException e){
                throw new ArithmeticException(e.getMessage());
             }
@@ -41,15 +38,12 @@ public class CalculaTaxaOperacoesTipoB {
             AplicaTaxaTipoB tipoB = new AplicaTaxaDemaisDias();
             try{
                 taxa = tipoB.aplicarTaxa(transferencia.getValorTransferencia());            
-                if(taxa.doubleValue() > transferencia.getContaOrigem().getValorConta().doubleValue()){
-                    throw new ArithmeticException("Não há saldo o sufiente na conta para a realização da transferência.");
-                }
-                transferencia.setValorTransferencia(taxa);
+          
             }catch(ArithmeticException e){
                throw new ArithmeticException(e.getMessage());
             }
         }    
-        return transferencia;
+        return taxa;
     }
     
     public int calculaPrazo(Date dataTrasferencia){  

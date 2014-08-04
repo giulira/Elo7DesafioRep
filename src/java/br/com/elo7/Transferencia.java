@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -21,31 +20,16 @@ import javax.persistence.Id;
 public class Transferencia {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)  
-    private long id;
-    private Conta contaOrigem;
-    private Conta contaDestino;
+    @GeneratedValue
+    private long id;    
+    private long agOrigem;
+    private long contaOrigem;  
+    private long agDestino;
+    private long contaDestino;
     private BigDecimal valorTransferencia;
-    private String tipoOperacao;
+    private String tipoOperacao;    
     private Date dataTransferencia;
     private String status;
-
-    public Conta getContaOrigem() {
-        return contaOrigem;
-    }
-
-    
-    public BigDecimal getValorTransferencia() {
-        return valorTransferencia;
-    }
-
-    public void setValorTransferencia(BigDecimal valorTransferencia) {
-        this.valorTransferencia = valorTransferencia;
-    }
-
-    public Date getDataTransferencia() {
-        return dataTransferencia;
-    }
 
     public long getId() {
         return id;
@@ -55,12 +39,44 @@ public class Transferencia {
         this.id = id;
     }
 
-    public Conta getContaDestino() {
+    public long getAgOrigem() {
+        return agOrigem;
+    }
+
+    public void setAgOrigem(long agOrigem) {
+        this.agOrigem = agOrigem;
+    }
+
+    public long getContaOrigem() {
+        return contaOrigem;
+    }
+
+    public void setContaOrigem(long contaOrigem) {
+        this.contaOrigem = contaOrigem;
+    }
+
+    public long getAgDestino() {
+        return agDestino;
+    }
+
+    public void setAgDestino(long agDestino) {
+        this.agDestino = agDestino;
+    }
+
+    public long getContaDestino() {
         return contaDestino;
     }
 
-    public void setContaDestino(Conta contaDestino) {
+    public void setContaDestino(long contaDestino) {
         this.contaDestino = contaDestino;
+    }
+
+    public BigDecimal getValorTransferencia() {
+        return valorTransferencia;
+    }
+
+    public void setValorTransferencia(BigDecimal valorTransferencia) {
+        this.valorTransferencia = valorTransferencia;
     }
 
     public String getTipoOperacao() {
@@ -71,8 +87,12 @@ public class Transferencia {
         this.tipoOperacao = tipoOperacao;
     }
 
-    public void setContaOrigem(Conta contaOrigem) {
-        this.contaOrigem = contaOrigem;
+    public Date getDataTransferencia() {
+        return dataTransferencia;
+    }
+
+    public void setDataTransferencia(Date dataTransferencia) {
+        this.dataTransferencia = dataTransferencia;
     }
 
     public String getStatus() {
@@ -82,11 +102,6 @@ public class Transferencia {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    public void setDataTransferencia(Date dataTransferencia) {
-        this.dataTransferencia = dataTransferencia;
-    }
-    
-         
-    
+      
+      
 }

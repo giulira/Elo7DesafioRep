@@ -16,7 +16,7 @@ public class AplicaTaxaAteCincoDias implements AplicaTaxaTipoC{
 
     @Override
     public BigDecimal aplicarTaxa(BigDecimal valor) {
-      BigDecimal resultado = new BigDecimal("0");
+      BigDecimal resultado = BigDecimal.ZERO;
       resultado = valor.multiply(new BigDecimal("8.3")).divide(new BigDecimal("100"));
       return resultado.add(valor); 
     }

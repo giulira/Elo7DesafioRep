@@ -15,20 +15,12 @@ import java.math.BigDecimal;
  * @author Giu
  */
 public class CalculaTaxaOperacoesTipoA {
-    public Transferencia calculaTaxa(Transferencia transferencia){
-        BigDecimal taxa = new BigDecimal("0");
-        AplicaTaxaTipoA tipoA = new AplicaTaxaTipoA();
-        try{
-                        
-            taxa = tipoA.aplicarTaxa(transferencia.getValorTransferencia());            
-            if(taxa.doubleValue() > transferencia.getContaOrigem().getValorConta().doubleValue()){
-                throw new ArithmeticException("Não há saldo o sufiente na conta para a realização da transferência.");
-            }
-            transferencia.setValorTransferencia(taxa);
-        }catch(ArithmeticException e){
-           throw new ArithmeticException(e.getMessage());
-        }
-        return transferencia;
+    
+    public BigDecimal calculaTaxa(Transferencia transferencia){
+        BigDecimal taxa = BigDecimal.ZERO;
+        AplicaTaxaTipoA tipoA = new AplicaTaxaTipoA();                               
+        taxa = tipoA.aplicarTaxa(transferencia.getValorTransferencia());  
+        return taxa;
     }
          
 }

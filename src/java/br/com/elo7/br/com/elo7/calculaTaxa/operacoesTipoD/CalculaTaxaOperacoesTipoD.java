@@ -19,8 +19,8 @@ import java.math.BigDecimal;
  */
 public class CalculaTaxaOperacoesTipoD {
     
-    public Transferencia calculaTaxa(Transferencia transferencia){
-        BigDecimal taxa = new BigDecimal("0");
+    public BigDecimal calculaTaxa(Transferencia transferencia){
+        BigDecimal taxa = BigDecimal.ZERO;
         
         try{
             if(transferencia.getValorTransferencia().doubleValue() <= 25000.d){
@@ -37,15 +37,11 @@ public class CalculaTaxaOperacoesTipoD {
                 AplicaTaxaTipoD taxaD = new AplicaTaxaRegra3();
                 taxa = taxaD.aplicarTaxa(transferencia);
             }
-            
-            if(taxa.doubleValue() > transferencia.getContaOrigem().getValorConta().doubleValue()){
-                throw new ArithmeticException("Não há saldo o sufiente na conta para a realização da transferência.");
-            }
-        transferencia.setValorTransferencia(taxa);
+          
         }catch(ArithmeticException e){
            throw new ArithmeticException(e.getMessage());
         }
-        return transferencia;
+        return taxa;
     }
     
 }

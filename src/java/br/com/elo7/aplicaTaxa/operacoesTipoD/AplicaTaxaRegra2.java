@@ -11,7 +11,6 @@ import br.com.elo7.aplicaTaxa.operacoesTipoB.AplicaTaxaAteTrintaDias;
 import br.com.elo7.aplicaTaxa.operacoesTipoB.AplicaTaxaDemaisDias;
 import br.com.elo7.aplicaTaxa.operacoesTipoB.AplicaTaxaTipoB;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -24,7 +23,7 @@ public class AplicaTaxaRegra2 implements AplicaTaxaTipoD{
 
     @Override
     public BigDecimal aplicarTaxa(Transferencia transferencia) {
-        BigDecimal taxa = new BigDecimal("0");
+        BigDecimal taxa = BigDecimal.ZERO;
         Date dt = transferencia.getDataTransferencia();      
         int dias = calculaPrazo(dt);
       
@@ -40,10 +39,7 @@ public class AplicaTaxaRegra2 implements AplicaTaxaTipoD{
     }
     
     public int calculaPrazo(Date dataTrasferencia){  
-        /*Não esquescer que para calcular o mes de um Date mes - 1.
-        Limitar mes seguinte no calendario.
-        */
-        
+                
        int qtdeDias = 0;  
        GregorianCalendar dtAtual = new GregorianCalendar();
        int diaAtual = dtAtual.get(Calendar.DAY_OF_MONTH);

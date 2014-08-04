@@ -26,8 +26,8 @@ import java.util.GregorianCalendar;
  */
 public class CalculaTaxaOperacoesTipoC {
     
-    public Transferencia calculaTaxa(Transferencia transferencia){
-        BigDecimal taxa = new BigDecimal("0");
+    public BigDecimal calculaTaxa(Transferencia transferencia){
+        BigDecimal taxa = BigDecimal.ZERO;
         Date dt = transferencia.getDataTransferencia();           
         int dias = calculaPrazo(dt);
         
@@ -76,22 +76,15 @@ public class CalculaTaxaOperacoesTipoC {
              taxa = taxaC.aplicarTaxa(transferencia.getValorTransferencia());
          }
          
-        
-         if(taxa.doubleValue() > transferencia.getContaOrigem().getValorConta().doubleValue()){
-                throw new ArithmeticException("Não há saldo o sufiente na conta para a realização da transferência.");
-            }
-            transferencia.setValorTransferencia(taxa);
         }catch(ArithmeticException e){
            throw new ArithmeticException(e.getMessage());
         }
-        return transferencia;
+        return taxa;
     }
     
     
      public int calculaPrazo(Date dataTrasferencia){  
-        /*Não esquescer que para calcular o mes de um Date mes - 1.
-        Limitar mes seguinte no calendario.
-        */
+        
        int qtdeDias = 0;  
        GregorianCalendar dtAtual = new GregorianCalendar();
        int diaAtual = dtAtual.get(Calendar.DAY_OF_MONTH);

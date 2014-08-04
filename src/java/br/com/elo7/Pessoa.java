@@ -8,8 +8,8 @@ package br.com.elo7;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -17,17 +17,18 @@ import javax.persistence.Id;
  */
 @Entity
 public class Pessoa {
-    
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)  
+    @GeneratedValue
     private long id;
     private String nome;
     private String endereco;
     private String documento;
-    private String tipoDoc;
+    private String tipoDoc;    
+    @ManyToOne
     private Conta conta;
-    private String password;
-
+    private String login;
+    private String senha;
+    
     public long getId() {
         return id;
     }
@@ -76,12 +77,21 @@ public class Pessoa {
         this.conta = conta;
     }
 
-    public String getPassword() {
-        return password;
+    public String getLogin() {
+        return login;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLogin(String login) {
+        this.login = login;
     }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
     
 }
