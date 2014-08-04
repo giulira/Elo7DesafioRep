@@ -15,12 +15,12 @@
                 <p:panel style="width: 40%">
                 <p>
                     <h:outputText value="Nome: "/>
-                    <h:inputText id="nome" value="#{pessoaMB.nome}" />
+                    <h:inputText id="nome" value="#{pessoaMB.nome}" maxlength="50" size="20" required="true" requiredMessage="Por favor informar o nome."/>
                 </p>
                 
                 <p>
                     <h:outputText value="Endereço: " escape="false"/>
-                    <h:inputText id="endereco" value="#{pessoaMB.endereco}" />
+                    <h:inputText id="endereco" value="#{pessoaMB.endereco}" maxlength="50" size="20" required="true" requiredMessage="Por favor informar o endereço."/>
                 </p>
                 
                 <p>
@@ -33,27 +33,27 @@
                 
                 <p>
                     <h:outputText value="Documento: "/>
-                    <h:inputText id="documento" value="#{pessoaMB.documento}" />
+                    <h:inputText id="documento" value="#{pessoaMB.documento}" maxlength="11" size="11" required="true" requiredMessage="Por favor informar o documento."/>
                 </p>
                 
                 <p>
                     <h:outputText value="Agência: "  escape="false"/>
-                    <h:inputText id="agencia" value="#{pessoaMB.agencia}" />
+                    <h:inputText id="agencia" value="#{pessoaMB.agencia}" maxlength="4" size="4" required="true" requiredMessage="Por favor informar o número da agência."/>
                 </p>
                 
                 <p>
                     <h:outputText value="Conta: "/>
-                    <h:inputText id="conta" value="#{pessoaMB.conta}" />
+                    <h:inputText id="conta" value="#{pessoaMB.conta}" maxlength="6" size="6" required="true" requiredMessage="Por favor informar o número da conta"/>
                 </p>
                 
                 <p>
                     <h:outputText value="login"/>
-                    <h:inputText id="login" value="#{pessoaMB.login}" />
+                    <h:inputText id="login" value="#{pessoaMB.login}" maxlength="20" size="20" required="true" requiredMessage="Por favor informar o login."/>
                 </p>
                 
                 <p>
                     <h:outputText value="Senha: "/>
-                    <h:inputSecret id="senha" value="#{pessoaMB.senha}" />
+                    <h:inputSecret id="senha" value="#{pessoaMB.senha}" maxlength="10" size="10" required="true" requiredMessage="Por favor informar a senha."/>
                 </p>
                 
                 <p>
