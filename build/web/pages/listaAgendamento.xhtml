@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+ <h:head/>        
+    
+    <h:body>        
+        
+        <f:view>
+            <h1>Transferências a ser realizadas</h1>
+            <h:form>
+            <p:panel>
+                <p:dataTable var="lista" value="#{agendaMB.listaAgenda}" emptyMessage="Não existem transferências agendadas.">
+                    <p:column headerText="id">
+                        <h:outputText value="#{lista.id}" />
+                    </p:column>
+                    <p:column headerText="Agência Origem">
+                        <h:outputText value="#{lista.agOrigem}" />
+                    </p:column>
+                    <p:column headerText="Conta Origem">
+                        <h:outputText value="#{lista.contaOrigem}" />
+                    </p:column>
+                    <p:column headerText="Agência Destino">
+                        <h:outputText value="#{lista.agDestino}" />
+                    </p:column>
+                    <p:column headerText="Valor Transfêrencia">
+                        <h:outputText value="#{lista.valorTransferencia}" />
+                    </p:column>
+                     <p:column headerText="Tipo Operação">
+                        <h:outputText value="#{lista.tipoOperacao}" />
+                    </p:column>
+                    <p:column headerText="Data Transferência">
+                        <h:outputText value="#{lista.dataTransferencia}" />
+                    </p:column>                    
+                </p:dataTable>   
+            </p:panel>   
+            
+            <p><h:commandLink action="#{agendaMB.voltar}" value="voltar"/></p>
+            <p><h:commandLink action="#{pessoaMB.sair}" value="Sair"/></p>
+            </h:form>
+        </f:view>
+    </h:body>    
+</html>
