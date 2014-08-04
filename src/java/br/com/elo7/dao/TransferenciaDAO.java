@@ -6,9 +6,7 @@
 
 package br.com.elo7.dao;
 
-import br.com.elo7.Conta;
 import br.com.elo7.Transferencia;
-import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
